@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="about-container">
       <div className="dark">
-        <nav className="nav-1 mx-5">
+        <nav className="nav-1 ">
           <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
               <a className="navbar-brand" href="#">

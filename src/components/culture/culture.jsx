@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Culture = () => {
   return (
     <div className="culture">
-      <nav className="nav-1 mx-5">
+      <nav className="nav-1 ">
         <nav className="navbar navbar-expand-lg ">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
@@ -95,7 +95,7 @@ const Culture = () => {
           </div>
         </div>
       </div>
-      <div className="content-culture container">
+      <div className="content-culture container " style={{width:"90%",marginTop:"40px"}}>
         <div className="row my-4">
           <div className="col-12 col-md-6 col-lg-6 order-1 order-md-0 my-5">
             <h2>Traditional Arts</h2>

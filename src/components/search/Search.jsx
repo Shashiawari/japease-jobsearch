@@ -53,7 +53,7 @@ const SearchPage = () => {
 
   return (
     <div className="search1">
-      <nav className="nav-1 mx-5">
+      <nav className="nav-1 ">
         <nav className="navbar navbar-expand-lg ">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">

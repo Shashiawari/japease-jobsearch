@@ -33,18 +33,9 @@
   border-radius: 25px;
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-  font-weight: lighter;
-}
 
-.content button {
-  margin-top: 100px !important;
-}
+
+
 
 .nav-1 {
   padding: 20px;
@@ -396,7 +387,12 @@
 }
 
 
-.tg{
-  position: absolute;
-  left: 70%;
+
+
+.inside{
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

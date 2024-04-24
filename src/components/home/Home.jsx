@@ -93,55 +93,7 @@ const Home = () => {
               </nav>
             </nav>
             <div className="items">
-              <div className="container">
-                <div className="row">
-                  <div className="col-4 my-3">
-                    <svg
-                      width="375"
-                      height="96"
-                      viewBox="0 0 375 96"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 96L0 84V0H24V72H36V0H60V72H72V0H96V84L84 96H54L48 84L42 96H12ZM166.688 72V24H130.688V72H166.688ZM118.688 96L106.688 84V12L118.688 0H178.688L190.688 12V84L178.688 96H118.688ZM201.375 96V0H273.375L285.375 12V48L273.375 60H267.375L285.375 96H261.375L237.375 48V36H261.375V24H225.375V96H201.375ZM296.062 96V0H320.062V36H332.062L350.062 0H374.062L350.062 48L374.062 96H350.062L332.062 60H320.062V96H296.062Z"
-                        fill="#FFF9F9"
-                        fill-opacity="0.5"
-                      />
-                    </svg>
-                  </div>
-                  <div className="col-4 my-3">
-                    <svg
-                      width="119"
-                      height="96"
-                      viewBox="0 0 119 96"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0 96V0H24V96H0ZM34.6875 96V0H64.6875L94.6875 60V0H118.688V96H88.6875L58.6875 36V96H34.6875Z"
-                        fill="#FFF9F9"
-                        fill-opacity="0.5"
-                      />
-                    </svg>
-                  </div>
-                  <div className="col-4 my-3">
-                    <svg
-                      width="511"
-                      height="96"
-                      viewBox="0 0 511 96"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 96L0 84V48H24V72H60V24H12L0 0H84V84L72 96H12ZM88.6875 96L136.688 0H160.688L208.688 96H178.688L172.688 84H130.688L142.688 60H160.688L148.688 36L118.688 96H88.6875ZM273.375 36V24H237.375V36H273.375ZM213.375 96V0H285.375L297.375 12V48L285.375 60H237.375V96H213.375ZM302.062 96L350.062 0H374.062L422.062 96H392.062L386.062 84H344.062L356.062 60H374.062L362.062 36L332.062 96H302.062ZM426.75 96V0H456.75L486.75 60V0H510.75V96H480.75L450.75 36V96H426.75Z"
-                        fill="#FFF9F9"
-                        fill-opacity="0.5"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+            <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713973017/Group_1_nv7ojw.png" className="img-fluid"></img>
             </div>
           </div>
         </div>
