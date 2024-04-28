@@ -5,22 +5,45 @@ import videoFile from "./v1.mp4"; // Import the video file
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 const Main = () => {
+  const [preloader, setPreloader] = useState(true);
 
   useEffect(() => {
-    // Initialize Typed.js when the component mounts
-    const typingeffect = new Typed(".multitext", {
-      strings: ["Full-time jobs", "part-time jobs", "your dream jobs"],
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 80,
-      backDelay: 1500,
-    });
+    // Simulate loading time with setTimeout
+    const timer = setTimeout(() => {
+      setPreloader(false);
+    }, 2000);
 
-    // Cleanup function to destroy Typed instance when component unmounts
-    return () => {
-      typingeffect.destroy();
-    };
+    return () => clearTimeout(timer); // Cleanup on component unmount
   }, []);
+
+  useEffect(() => {
+    if (!preloader) {
+      // Initialize Typed.js when the preloader is false
+      const typingeffect = new Typed(".multitext", {
+        strings: ["Full-time jobs", "part-time jobs", "your dream jobs"],
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 80,
+        backDelay: 1500,
+      });
+
+      // Cleanup function to destroy Typed instance when component unmounts
+      return () => {
+        typingeffect.destroy();
+      };
+    }
+  }, [preloader]);
+
+  if (preloader) {
+    // Render preloader
+    return (
+      <div className="preloader " style={{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713282358/Picture1_e8of1t.png" height={"50px"}></img>
+      </div>
+    );
+  }
+
+  // Render Main component once preloader is false
   return (
     <div className="main-1">
       <div className="ct">
@@ -108,29 +131,27 @@ const Main = () => {
             </nav>
           </nav>
           <div className="inside mx-5 ">
-          <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713972246/8fd1df0d-a46f-46f8-8780-a55f3241aa79.png" className="img-fluid  "></img>
-          <h1
-                  className="outext mt-5"
-                  style={{ fontWeight: "400", fontSize: "20px" }}
-                >
-                  We Can Help You Find <span className="multitext"></span>
-                </h1>
-
-                <button className="button1 mt-4">
-                <span className="button_lg">
-                  <span className="button_sl"></span>
-                  <span className="button_text">
-                    <Link
-                      style={{ color: "black", textDecoration: "none" }}
-                      to="/search"
-                    >
-                      Search Now
-                    </Link>
-                  </span>
+            <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713972246/8fd1df0d-a46f-46f8-8780-a55f3241aa79.png" className="img-fluid  "></img>
+            <h1
+              className="outext mt-5"
+              style={{ fontWeight: "400", fontSize: "20px" }}
+            >
+              We Can Help You Find <span className="multitext"></span>
+            </h1>
+            <button className="button1 mt-4">
+              <span className="button_lg">
+                <span className="button_sl"></span>
+                <span className="button_text">
+                  <Link
+                    style={{ color: "black", textDecoration: "none" }}
+                    to="/search"
+                  >
+                    Search Now
+                  </Link>
                 </span>
-              </button>
+              </span>
+            </button>
           </div>
-
           <p className="foot">© 2024 JapEase. All rights reserved.</p>
         </div>
       </div>

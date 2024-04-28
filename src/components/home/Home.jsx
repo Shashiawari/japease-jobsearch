@@ -2,7 +2,49 @@ import React from "react";
 import videoFile from "./v2.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 const Home = () => {
+  const [isJapanese, setIsJapanese] = useState(false);
+
+  const translations = {
+    "Three Steps to Get Started": "スタートするための3つのステップ",
+    Sign: "サインイン",
+    Search: "検索",
+    Apply: "応募",
+    "Search For Your Dream Job": "夢の仕事を検索",
+    "Popular Finds": "人気の仕事",
+    "Market manager": "マーケットマネージャー",
+    "Restraunt manager": "レストランマネージャー",
+    "Teacher for children": "子供向けの教師",
+    Delivery: "配達",
+    Home: "ホーム",
+    About: "約",
+    Culture: "文化",
+    "Already have an account, login here":
+      "すでにアカウントをお持ちですか？こちらからログインしてください",
+    "For Employers": "雇用主向け",
+    Register: "登録",
+    Employers: "雇用主",
+    Prices: "価格",
+    "User guide": "ユーザーガイド",
+    Help: "ヘルプ",
+    Legal: "法的",
+    "Terms Of use": "利用規約",
+    "Privacy Policy": "プライバシーポリシー",
+    "Commertial Art": "商業芸術",
+    "Contact Us": "お問い合わせ",
+    "Tokyo Office": "東京オフィス",
+    JapEase: "ジャパンジョブ",
+    "Jobs in Japan": "日本の仕事",
+    FAQ: "よくある質問",
+    Blog: "ブログ",
+    "All Rights Reserved": "無断転載を禁じます",
+  };
+
+  const toggleLanguage = () => {
+    setIsJapanese(!isJapanese);
+  };
   return (
     <div className="home">
       <div>
@@ -35,37 +77,37 @@ const Home = () => {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                   >
-                  <label class="hamburger">
-                  <input type="checkbox" />
-                  <svg viewBox="0 0 32 32">
-                    <path
-                      class="line line-top-bottom"
-                      d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-                    ></path>
-                    <path class="line" d="M7 16 27 16"></path>
-                  </svg>
-                </label>
+                    <label class="hamburger">
+                      <input type="checkbox" />
+                      <svg viewBox="0 0 32 32">
+                        <path
+                          class="line line-top-bottom"
+                          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+                        ></path>
+                        <path class="line" d="M7 16 27 16"></path>
+                      </svg>
+                    </label>
                   </button>
                   <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto d-flex justify-content-center">
                       <li className="nav-item">
                         <Link className="nav-link" to="/home">
-                          Home
+                          {isJapanese ? translations["Home"] : "Home"}
                         </Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/about">
-                          About
+                          {isJapanese ? translations["About"] : "About"}
                         </Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/culture">
-                          Culture
+                          {isJapanese ? translations["Culture"] : "Culture"}
                         </Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/search">
-                          Search
+                          {isJapanese ? translations["Search"] : "Search"}
                         </Link>
                       </li>
                     </ul>
@@ -74,8 +116,8 @@ const Home = () => {
                         <span>Login</span>
                       </button>
 
-                      <button className="signupBtn mx-3">
-                        SIGN UP
+                      <button className="signupBtn mx-3 text-center ">
+                        Sign in
                         <span className="arrow">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -87,13 +129,29 @@ const Home = () => {
                           </svg>
                         </span>
                       </button>
+                      <div class="buttonss">
+                        <button
+                          class="btns translate-button"
+                          onClick={toggleLanguage}
+                        >
+                          <span></span>
+                          <p
+                            data-start="good luck!"
+                            data-text="English"
+                            data-title="日本語"
+                          ></p>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </nav>
             </nav>
             <div className="items">
-            <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713973017/Group_1_nv7ojw.png" className="img-fluid"></img>
+              <img
+                src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713973017/Group_1_nv7ojw.png"
+                className="img-fluid"
+              ></img>
             </div>
           </div>
         </div>
@@ -102,14 +160,19 @@ const Home = () => {
         {/* Use alt attribute for accessibility */}
       </div>
       <div className="steps">
-        <h1 className="text-center mt-5">Three Steps to Get Started</h1>
+        <h1 className="text-center mt-5">
+          {" "}
+          {isJapanese
+            ? translations["Three Steps to Get Started"]
+            : "Three Steps to Get Started"}
+        </h1>
         <hr className="mx-5" />
         <div className="container">
           <div className="row mx-5">
             <div className="col-12 p-4 col-lg-4">
               <div className="card text-center p-5">
                 <h1>01</h1>
-                <h2>Sign In</h2>
+                <h2> {isJapanese ? translations["Sign"] : "Sign in"}</h2>
                 <p>
                   Register as a job seeker and post a resume (Already have an
                   account, login here)
@@ -119,14 +182,14 @@ const Home = () => {
             <div className="col-12 p-4 col-lg-4">
               <div className="card text-center p-5">
                 <h1>02</h1>
-                <h2>Search</h2>
+                <h2> {isJapanese ? translations["Search"] : "Search"}</h2>
                 <p>Search for relavent jobs you are intrested in</p>
               </div>
             </div>
             <div className="col-12 p-4 col-lg-4">
               <div className="card text-center p-5">
                 <h1>03</h1>
-                <h2>Apply</h2>
+                <h2> {isJapanese ? translations["Apply"] : "Apply"}</h2>
                 <p>Apply for your dream job</p>
               </div>
             </div>
@@ -136,7 +199,12 @@ const Home = () => {
       <div className="search p-5">
         <div className="container">
           <div className="row ds">
-            <h1 className="text-center">Search For Your Dream Job</h1>
+            <h1 className="text-center">
+              {" "}
+              {isJapanese
+                ? translations["Search For Your Dream Job"]
+                : "Search For Your Dream Job"}
+            </h1>
           </div>
           <div className="btn-container mt-5">
             <a className="btn-content" href="#">
@@ -151,9 +219,12 @@ const Home = () => {
                 >
                   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                 </svg>
-                <Link style={{textDecoration:"none",color:"white"}} to="/search">
-                Search
-              </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to="/search"
+                >
+                  {isJapanese ? translations["Search"] : "Search"}
+                </Link>
               </span>
               <span className="icon-arrow">
                 <svg
@@ -194,7 +265,10 @@ const Home = () => {
       </div>
       <div class="featured">
         <div class="container">
-          <h1 class="mt-5 text-center">Popular Finds</h1>
+          <h1 class="mt-5 text-center">
+            {" "}
+            {isJapanese ? translations["Popular Finds"] : "Popular Finds"}
+          </h1>
           <hr class="mx-5" />
 
           <div class="row text-center p-5">
@@ -204,7 +278,12 @@ const Home = () => {
                   src="https://cdn-icons-png.flaticon.com/512/89/89865.png"
                   alt=""
                 />
-                <h3 class="mt-4">Market manager</h3>
+                <h3 class="mt-4">
+                  {" "}
+                  {isJapanese
+                    ? translations["Market manager"]
+                    : "Market manager"}
+                </h3>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 my-5">
@@ -213,7 +292,12 @@ const Home = () => {
                   src="https://cdn-icons-png.flaticon.com/512/384/384229.png"
                   alt=""
                 />
-                <h3 class="mt-4">Restraunt manager</h3>
+                <h3 class="mt-4">
+                  {" "}
+                  {isJapanese
+                    ? translations["Restraunt manager"]
+                    : "Restraunt manager"}
+                </h3>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 my-5">
@@ -222,7 +306,12 @@ const Home = () => {
                   src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png"
                   alt=""
                 />
-                <h3 class="mt-4">Teacher for children</h3>
+                <h3 class="mt-4">
+                  {" "}
+                  {isJapanese
+                    ? translations["Teacher for children"]
+                    : "Teacher for children"}
+                </h3>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 my-5">
@@ -231,7 +320,10 @@ const Home = () => {
                   src="https://cdn-icons-png.flaticon.com/512/7541/7541708.png"
                   alt=""
                 />
-                <h3 class="mt-5">Delivery</h3>
+                <h3 class="mt-5">
+                  {" "}
+                  {isJapanese ? translations["Delivery"] : "Delivery"}
+                </h3>
               </div>
             </div>
           </div>
@@ -239,57 +331,68 @@ const Home = () => {
       </div>
 
       <footer>
-        <div class="footer">
-          <div class="container">
-            <div class="row text-center">
-              <div class="col-12 col-md-6 col-lg-3 my-3">
-                <h2>JapEase</h2>
-                <p>Jobs in Japan</p>
-                <p>About us</p>
-                <p>Contact us</p>
-                <p>FAQ</p>
-                <p>Blog</p>
+        {/* Footer content */}
+        <div className="footer">
+          <div className="container">
+            <div className="row text-center">
+              <div className="col-12 col-md-6 col-lg-3 my-3">
+                <h2>{isJapanese ? translations["JapEase"] : "JapEase"}</h2>
+                <p>
+                  {isJapanese ? translations["Jobs in Japan"] : "Jobs in Japan"}
+                </p>
+                <p>{isJapanese ? translations["FAQ"] : "FAQ"}</p>
+                <p>{isJapanese ? translations["Blog"] : "Blog"}</p>
               </div>
-              <div class="col-12 col-md-6 col-lg-3 my-3">
-                <h2 class="y">For Employers</h2>
-                <p>Register</p>
-                <p>Employers</p>
-                <p>Prices</p>
-                <p>User guide</p>
-                <p>Help</p>
+              <div className="col-12 col-md-6 col-lg-3 my-3">
+                <h2>
+                  {isJapanese ? translations["For Employers"] : "For Employers"}
+                </h2>
+                <p>{isJapanese ? translations["Employers"] : "Employers"}</p>
+                <p>{isJapanese ? translations["Prices"] : "Prices"}</p>
+                <p>{isJapanese ? translations["User guide"] : "User guide"}</p>
+                <p>{isJapanese ? translations["Help"] : "Help"}</p>
               </div>
-              <div class="col-12 col-md-6 col-lg-3 my-3">
-                <h2>Legal</h2>
-                <p>Terms Of use</p>
-                <p>Privacy Policy</p>
-                <p>Contact us</p>
-                <p>Commertial Art</p>
+              <div className="col-12 col-md-6 col-lg-3 my-3">
+                <h2>{isJapanese ? translations["Legal"] : "Legal"}</h2>
+                <p>
+                  {isJapanese ? translations["Terms Of use"] : "Terms Of use"}
+                </p>
+                <p>
+                  {isJapanese
+                    ? translations["Privacy Policy"]
+                    : "Privacy Policy"}
+                </p>
+                <p>
+                  {isJapanese
+                    ? translations["Commertial Art"]
+                    : "Commertial Art"}
+                </p>
+                <p>{isJapanese ? translations["Contact Us"] : "Contact Us"}</p>
+                <p>
+                  {isJapanese ? translations["Tokyo Office"] : "Tokyo Office"}
+                </p>
               </div>
-              <div class="col-12 col-md-6 col-lg-3 my-3 contact">
-                <h2>Contact Us</h2>
-                <p>Tokyo Office</p>
-                <p>C/O Global Village Media 1-7-20-B2 Yaesu, Chuo-ku, Tokyo</p>
-                <p>info@jobsinjapan.com</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-instagram insta"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-linkedin linked"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                </svg>
+              <div className="col-12 col-md-6 col-lg-3 my-3">
+                <h2>
+                  {isJapanese ? translations["Contact Us"] : "Contact Us"}
+                </h2>
+                <p>
+                  {isJapanese ? translations["Tokyo Office"] : "Tokyo Office"}
+                </p>
+                <p>Phone: +123 456 789</p>
+                <p>Email: info@japease.com</p>
+                <p>Address: 123 Tokyo Street, Japan</p>
+              </div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col text-center">
+                <p>
+                  &copy; 2024 JapEase.{" "}
+                  {isJapanese
+                    ? translations["All Rights Reserved"]
+                    : "All Rights Reserved"}
+                </p>
               </div>
             </div>
           </div>
