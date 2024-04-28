@@ -107,8 +107,8 @@ const Main = () => {
               </div>
             </nav>
           </nav>
-          <div className="inside">
-          <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713972246/8fd1df0d-a46f-46f8-8780-a55f3241aa79.png" className="img-fluid "></img>
+          <div className="inside mx-5 ">
+          <img src="https://res.cloudinary.com/dq7brjjnz/image/upload/v1713972246/8fd1df0d-a46f-46f8-8780-a55f3241aa79.png" className="img-fluid  "></img>
           <h1
                   className="outext mt-5"
                   style={{ fontWeight: "400", fontSize: "20px" }}
