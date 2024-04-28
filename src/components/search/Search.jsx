@@ -17,14 +17,14 @@ const SearchPage = () => {
         "https://jsearch.p.rapidapi.com/search",
         {
           params: {
-            query: query,
-            location: location,
+            query: query + "in" + location,
+
             page: "1",
-            num_pages: "1",
+            num_pages: "4",
           },
           headers: {
             "X-RapidAPI-Key":
-              "457bfe45e8msh223732330696682p188b32jsna734a204897f",
+              "0bc9ccaad7mshfeedfab48510e88p1726d8jsn6acb2427f278",
             "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
           },
         }
@@ -73,16 +73,16 @@ const SearchPage = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-            <label class="hamburger">
-            <input type="checkbox" />
-            <svg viewBox="0 0 32 32">
-              <path
-                class="line line-top-bottom"
-                d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-              ></path>
-              <path class="line" d="M7 16 27 16"></path>
-            </svg>
-          </label>
+              <label class="hamburger">
+                <input type="checkbox" />
+                <svg viewBox="0 0 32 32">
+                  <path
+                    class="line line-top-bottom"
+                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+                  ></path>
+                  <path class="line" d="M7 16 27 16"></path>
+                </svg>
+              </label>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto d-flex justify-content-center align-items-center">
@@ -171,11 +171,15 @@ const SearchPage = () => {
           <div className="row">
             <ul>
               {jobs.map((job) => (
-                <div className="my-5 jb ">
-                  <div className="d-flex align-items-center">
-                    <img src={job.employer_logo} height={"100px"} />
-
-                    <h2 className="mx-3">{job.job_title}</h2>
+                <div className="my-5 jb mx-4 ">
+                  <div className="d-flex align-items-center row">
+                    <div className="col-12 col-lg-6">
+                      <img src={job.employer_logo} height={"50px"} />
+                    </div>
+                    <div className="col-12 col-lg-6">
+                      {" "}
+                      <h2 className="my-5">{job.job_title}</h2>
+                    </div>
                   </div>
                   <p className="my-3">{job.employer_name}</p>
                   <p>{job.job_location}</p>
@@ -187,7 +191,16 @@ const SearchPage = () => {
                       <p>Salary= Not disclosed</p>
                     )}
                   </p>
-                  <button className="btn-apply">Apply Now</button>
+                  <p>{job.job_city}</p>
+                  <p>{job.job_country}</p>
+                  <button className="btn-apply">
+                    <a
+                      style={{ textDecoration: "none", color: "white" }}
+                      href={job.job_apply_link}
+                    >
+                      Apply Now
+                    </a>
+                  </button>
                 </div>
               ))}
             </ul>
@@ -195,7 +208,7 @@ const SearchPage = () => {
         </div>
       ) : (
         <div className="non">
-        <p>Try Finding Jobs</p>
+          <p>Try Finding Jobs</p>
         </div>
       )}
     </div>
