@@ -11,7 +11,7 @@ const Main = () => {
     // Simulate loading time with setTimeout
     const timer = setTimeout(() => {
       setPreloader(false);
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer); // Cleanup on component unmount
   }, []);
